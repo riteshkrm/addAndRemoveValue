@@ -1,36 +1,30 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import "./App.css";
 
 function App() {
-  let [score, setScore] = useState(0)
-  
-  
-  const addValue = ()=>{
-    setScore(score ++);
-    if(score === 21){
-      score = 0
+  let [score, setScore] = useState(0);
+
+
+  const addValue = () => {
+    if (score < 21) {
+      setScore(score ++);
     }
+  };
 
-  }
-
-  const removerValue = ()=>{
-    setScore(score --);
-  }
-
+  const removeValue = () => {
+    if (score > -1) {
+      setScore(score --);
+    }
+  };
   return (
     <>
-     <h2>Add Value And Remove Value</h2>
-     <h2>Counter :- {score}</h2>
-     <button 
-      onClick={addValue}
-     >Add Value {score}</button>
-     <button 
-      onClick={removerValue}
-     >Remove Value {score}</button>
+      <h2>Add Value And Remove Value</h2>
+      <h2>Min Value :- 0 || Max Value :- 20</h2>
+      <h2>Counter :- {score}</h2>
+      <button onClick={addValue}>Add Value {score}</button>
+      <button onClick={removeValue}>Remove Value {score}</button>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
